@@ -1,8 +1,64 @@
-/// @name Clearfix
-@mixin clearfix() {
-  &:before {
-    content: '';
-    clear: both;
-    display: table;
+@mixin respond($name) {
+  $value: map-get($breakpoints, $name);
+
+  @if($mobile-first) {
+    @media screen and (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @media screen and (max-width: $value) {
+      @content;
+    }
   }
+}
+
+@mixin column($column, $max-columns: 12) {
+  width: (100%/$max-columns)*$column;
+}
+
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+@mixin font-face($name, $url) {
+  @font-face {
+    font-family: #{$name};
+    src: url('#{$url}.eot');
+    src: url('#{$url}.eot#iefix') format("embedded-opentype"),
+         url('#{$url}.ttf') format('truetype'),
+         url('#{$url}.svg##{$name}') format('svg'),
+         url('#{$url}.woff') format('woff');
+
+    @content;
+  }
+}
+
+@mixin list-reset() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin clearfix() {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content
+  }
+  &:-moz-placeholder           {
+    @content
+  }
+  &::-moz-placeholder          {
+    @content
+  }
+  &:-ms-input-placeholder      {
+    @content
+  } 
 }

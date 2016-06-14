@@ -13,8 +13,6 @@
 @import 'layout/default';
 
 // 4.Components
-@import 'components/buttons';
-
-body {
-  color: red
-}
+@import 'components/buttons',
+        'components/bubbles',
+        'components/forms';

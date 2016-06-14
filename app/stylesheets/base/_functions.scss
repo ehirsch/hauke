@@ -1,0 +1,55 @@
+@function get-brand($key) {
+  @if map-has-key($brandColors, $key) {
+    @return map-get($brandColors, $key);
+  }
+
+  @warn "The key #{$key} is not in the map ’$brandColors’";
+  @return null;
+}
+
+@function get-social-color($key) {
+  @if map-has-key($socialMediaColors, $key) {
+    @return map-get($socialMediaColors, $key);
+  }
+
+  @warn "The key #{$key} is not in the map ’$layer’";
+  @return null;
+}
+
+
+@function get-index($key) {
+  @if map-has-key($indecies, $key) {
+    @return map-get($indecies, $key);
+  }
+
+  @warn "The key #{$key} is not in the map ’$indecies’";
+  @return null;
+}
+
+
+
+@function get-icon($icon) {
+  @if map-has-key($icons, $icon) {
+    @return quote(map-get($icons, $icon));
+  }
+
+  @warn "The key #{$icon} is not in the map ’$icons’";
+  @return null;
+}
+
+
+
+@function get-font($key) {
+  @if map-has-key($fontSettings, $key) {
+    @return map-get($fontSettings, $key);
+  }
+
+  @warn "The key #{$key} is not in the map ’$fontSettings’";
+  @return null;
+}
+
+
+
+@function get-color($scheme, $tone: base) {
+  @return map-get(map-get($colorscheme, $scheme), $tone);
+}

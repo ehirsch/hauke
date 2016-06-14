@@ -1,0 +1,14 @@
+// 1.Config
+
+// 2.Base
+textarea {
+  display: block;
+  resize: none;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  box-shadow: none;
+  background: transparent;
+  color: #333;
+  @include font-size(2.1);
+}

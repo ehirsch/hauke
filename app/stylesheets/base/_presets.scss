@@ -1,8 +1,139 @@
-html {}
-body {}
+// 1.Config
+$bg-color: get-color(gray, light) !default;
 
-p {}
+// 2.Base
+// @todo Add new standard for box-model reset
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 
-hr {}
+html {
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 100%;
+  background-image: $bg-color;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 10px;
+  font-weight: normal;
+  text-align: center;
+  text-rendering: optimizeLegibility;
+}
 
-blockquote {}
+body {
+  display: flex;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 0;
+  margin: 0;
+  padding: 0;
+  min-height: 600px;
+  background: $bg-color;
+  color: get-font(color);
+  font-family: get-font(baseFamily);
+
+  // No REM-Value because of chrome has a rendering-problem with it
+  // Using pixel-value to avoid it
+  font-size: get-font(size);
+  font-weight: 100;
+  line-height: 1.425;
+
+  @include respond(medium) {
+    font-size: 16px;
+  }
+
+  &.is-active {
+    .l-banner a:not(.o-logo) {
+      @include respond(large) {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+input {
+  margin: 25px 0 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  background: none;
+  box-shadow: none;
+  color: get-color(unique, white);
+  @include font-size(1.6);
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  border: none;
+}
+
+p {
+  margin: 12px 0 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+a {
+  color: $global-link-color;
+  text-decoration: none;
+
+  &:hover,
+  &:visited,
+  &:focus,
+  &:visited {
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+ol, ul {
+  margin: 30px 0;
+  padding-left: 25px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+ul {
+  list-style-type: disc;
+}
+
+// Name: HR
+hr {
+  height: 2px;
+  background: $global-border-color;
+  border: none;
+}
+
+// Video
+video {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+  border: none;
+  overflow: hidden;
+  background: transparent;
+  padding: 0;
+}

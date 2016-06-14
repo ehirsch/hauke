@@ -1,0 +1,64 @@
+$mobile-first: true !default;
+
+// ColorScheme
+$colorscheme: (
+  unique: (
+    black: #000,
+    white: #fff
+  ),
+  blue: (
+    base: #047fcd
+  ),
+  brown: (base: red),
+  gray: (
+    light: #f2f8f9,
+    medium: #e5e7ea,
+    base: #A1AAB3,
+    dark: #5C6773,
+    darker: #333
+  )
+) !default;
+
+// BrandColors
+$brandColors: (
+  primary: get-color(gray, dark),
+  secondary: get-color(brown),
+  tertiary: get-color(gray)
+) !default;
+
+$socialMediaColors: (
+  instagram: #2d5f9a,
+  deviantart: #3f5348,
+  flickr: #ed1a83,
+  youtube: rgb(207, 52, 39),
+  google_photo: rgb(207, 52, 39)
+) !default;
+
+// FontSettings
+$fontSettings: (
+  color: get-brand(tertiary),
+  baseFamily: (gotham, Helvetica, sans-serif),
+  size: 18px
+) !default;
+
+// Breakpoints & Columns
+$breakpoints: (
+  small: 480px,
+  medium: 600px,
+  large: 767px,
+  xLarge: 1023px,
+  xxLarge: 1200px
+) !default;
+
+// Indecies
+$indecies: (
+) !default;
+
+// Component-Distance
+$component-space: 30px !default;
+
+// Misc
+$global-border-radius: 5px !default;
+$global-rounded-border-radius: 100px !default;
+$global-border-color: get-color(gray, medium) !default;
+$global-link-color: get-brand(secondary) !default;
