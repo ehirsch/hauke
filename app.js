@@ -31,14 +31,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
-var server = app.listen(3000, function () {
-
-    var host = server.address().address;
-    var port = server.address().port;
-
-    console.log('custom server listening at http://%s:%s', host, port);
-});
-
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
 	var err = new Error('Not Found');
@@ -69,3 +61,5 @@ app.use(function (err, req, res, next) {
 		error: {}
 	});
 });
+
+module.exports = app;

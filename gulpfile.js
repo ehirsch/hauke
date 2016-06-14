@@ -20,7 +20,7 @@ gulp.task('sass', function () {
 // @task serve
 gulp.task('serve', function() {
     var server = gls('app.js');
-    server.start().then(function(result) {
+    server.start('./bin/www').then(function(result) {
         console.log('Server exited with result:', result);
         process.exit(result.code);
     });

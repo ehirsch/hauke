@@ -19,7 +19,10 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var server = app.listen(3000, function () {
+    var host = server.address().address;
+    console.log('custom server listening at http://%s:%s', host, port);
+});
 
 /**
  * Listen on provided port, on all network interfaces.
