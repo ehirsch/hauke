@@ -1,0 +1,8 @@
+/// @name Clearfix
+@mixin clearfix() {
+  &:before {
+    content: '';
+    clear: both;
+    display: table;
+  }
+}
