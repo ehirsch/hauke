@@ -1,8 +1,10 @@
 var gulp         = require('gulp'),
     sass         = require('gulp-sass'),
     sourcemaps   = require('gulp-sourcemaps'),
+    gls          = require('gulp-live-server'),
     autoprefixer = require('gulp-autoprefixer');
 
+// @task sass
 gulp.task('sass', function () {
   return gulp
     .src('app/scss/**/*.scss')
@@ -15,6 +17,20 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('public/stylesheets/'));
 });
 
+// @task serve
+gulp.task('serve', function() {
+    var server = gls('app.js');
+    server.start().then(function(result) {
+        console.log('Server exited with result:', result);
+        process.exit(result.code);
+    });
+    gulp.watch(['public/**/*.css', 'public/**/*.html'], function(file) {
+        server.notify.apply(server, [file]);
+    });
+    gulp.watch('app.js', server.start);
+});
+
+// @task watch
 gulp.task('watch', function() {
   return gulp
     .watch(input, ['sass'])
@@ -25,6 +41,7 @@ gulp.task('default', [
 ]);
 
 gulp.task('play', [
-  'default', 
-  'watch'
+  'default',
+  'serve',
+  'watch',
 ]);
