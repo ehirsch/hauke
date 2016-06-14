@@ -9,7 +9,7 @@ gulp.task('sass', function () {
   return gulp
     .src('app/scss/**/*.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass(sassOptions).on('error', sass.logError))
+    .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write())
     .pipe(autoprefixer({
       browsers: ['last 2 versions']
