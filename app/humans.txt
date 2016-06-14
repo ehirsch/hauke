@@ -1,0 +1,8 @@
+
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+  <Eike Hirsch> -- <Developer> -- <ehirsch>
+  <Tim Hartmann> -- <Developer> -- <tim_hartmann_>
