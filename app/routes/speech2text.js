@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET debug listing. */
+/* GET users listing. */
 router.get('/', function(req, res, next) {
-	res.render('debug', { title: 'Debug' });
+	res.render('speech2text', { title: 'Speech2text' });
 });
 
 module.exports = router;
