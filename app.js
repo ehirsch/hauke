@@ -5,7 +5,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./app/routes/index');
-var users = require('./app/routes/debug');
+var debug = require('./app/routes/debug');
+var speech2text = require('./app/routes/speech2text');
 
 var app = express();
 
@@ -27,7 +28,8 @@ app.use(require('node-sass-middleware')({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/debug', users);
+app.use('/debug', debug);
+app.use('/speech2text', speech2text);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
