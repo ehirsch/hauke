@@ -50,17 +50,15 @@ gulp.task('serve', function() {
     });
 });
 
-gulp.task('watch', ['js', 'sass', 'copyImages', 'copyFonts'], function() {
+gulp.task('watch', ['dist'], function() {
 	gulp.watch('app/js/**/*.js', ['js']);
 	gulp.watch('app/stylesheets/**/*.scss', ['sass']);
     gulp.watch('app/images/**/*', ['copyImages']);
     gulp.watch('app/fonts/**/*', ['copyFonts']);
 });
 
-gulp.task('default', [
-  'play'
-]);
+gulp.task('dist', ['js', 'sass', 'copyImages', 'copyFonts']);
 
-gulp.task('play', [
-  'serve', 'watch'
-]);
+gulp.task('default', ['play']);
+
+gulp.task('play', ['serve', 'watch' ]);
