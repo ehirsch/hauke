@@ -5,47 +5,98 @@ $bubble: (
 
 // 2.Base
 .o-bubble {
-  margin-top: 40px;
-  max-width: 75%;
+  align-self: flex-start;
   align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
-  flex-direction: row;
+  max-width: 65%;
+  margin-top: 40px;
+  position: relative;
+  border-radius: $global-border-radius;
+  background: get-color(gray, light);
   text-align: left;
   
   &__inner {
-    padding: 20px;
+    padding: 12px 15px;
     position: relative;
-    border-radius: $global-border-radius;
-    background: get-color(unique, white);
     
     &:before {
       content: '';
       display: inline-block;
       position: absolute;
-      right: 0;
-      top: -5px;
-      border-bottom: 5px solid transparent;
-      border-right: 5px solid get-color(unique, white); 
-      border-top: 5px solid transparent;
+      right: -5px;
+      top: 0;
+      border-bottom: 10px solid transparent;
+      border-left: 10px solid get-color(gray, light); 
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-top: 1px solid $global-border-color;
+    
+    button {
+      padding: 12px;
+      width: 50%;
+      border-left: 1px solid $global-border-color;
+      @include font-size(1.6);
+      
+      &:first-child {
+        border-left: none;
+      }
+    }
+  }
+
+  img:first-child {
+    border-radius: $global-border-radius $global-border-radius 0 0;
+  }
+
+  .o-avatar {
+    bottom: 0;
+    left: 9px;
+    position: absolute;
+    border: 3px solid white;
+    
+    &--small {
+      bottom: -10px;
+      left: -10px;
     }
   }
 
   &[data-type="answer"] {
     margin-top: 20px;
     align-self: flex-end;
+    background-color: get-color(blue);
     text-align: right;
     
     .o-bubble__inner {
-      background-color: get-color(blue);
       color: get-color(unique, white);
       
       &:before {
-        left: 0;
+        left: -5px;
         right: auto;
-        border-left: 5px solid get-color(blue);
-        border-right: 0;
+        border-left: none;
+        border-right: 10px solid get-color(blue);
       }
+    }
+    .o-avatar {
+      left: auto;
+      right: -10px;
+    }
+  }
+  &[data-type="answer"] + &[data-type="answer"] {
+    margin-top: 10px;
+    
+    .o-bubble__inner:before {
+      display: none;
+    }
+  }
+  &[data-collection="true"] {
+    .o-avatar {
+      display: none;
     }
   }
 }

@@ -3,4 +3,9 @@
   height: 55px;
   width: 55px;
   border-radius: $global-rounded-border-radius;
+  
+  &--small {
+    height: 30px;
+    width: 30px;
+  }
 }
