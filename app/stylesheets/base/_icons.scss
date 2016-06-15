@@ -1,0 +1,29 @@
+$icons: (
+  micro: '\61',
+  dots: '\62'
+) !default;
+
+%icon-defaults {
+  font-family: "icons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  @extend %icon-defaults;
+}
+
+@each $name, $value in $icons {
+  .icon-#{$name} {
+    &:before {
+      content: quote($value);
+    }
+  }
+}

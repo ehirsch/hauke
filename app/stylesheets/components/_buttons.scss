@@ -4,4 +4,38 @@ $buttons: (
 ) !default;
 
 // 2.Base
-.o-button {}
+.o-button {
+  display: inline-block;
+  padding: 10px 25px;
+  vertical-align: top;
+  cursor: pointer;
+  -webkit-appearance: none;
+  border: 2px solid get-color(gray, medium);
+  box-shadow: none;
+  @include font-size(1.6);
+  font-weight: 300;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover {
+    background: get-color(gray, medium);
+    text-decoration: none;
+  }
+  
+  &--plain {
+    padding: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    color: get-color(blue);
+    @include font-size(1.9);
+    text-transform: none;
+    
+    &:hover {
+      opacity: 0.7;
+      background: transparent;
+    }
+  }
+}

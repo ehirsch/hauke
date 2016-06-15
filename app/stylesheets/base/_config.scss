@@ -21,7 +21,7 @@ $colorscheme: (
 
 // BrandColors
 $brandColors: (
-  primary: get-color(gray, dark),
+  primary: get-color(blue),
   secondary: get-color(brown),
   tertiary: get-color(gray)
 ) !default;
@@ -37,7 +37,7 @@ $socialMediaColors: (
 // FontSettings
 $fontSettings: (
   color: get-brand(tertiary),
-  baseFamily: (gotham, Helvetica, sans-serif),
+  baseFamily: (Helvetica, Arial, Sans-Serif),
   size: 18px
 ) !default;
 
@@ -52,6 +52,7 @@ $breakpoints: (
 
 // Indecies
 $indecies: (
+  banner: 10
 ) !default;
 
 // Component-Distance
@@ -61,4 +62,4 @@ $component-space: 30px !default;
 $global-border-radius: 5px !default;
 $global-rounded-border-radius: 100px !default;
 $global-border-color: get-color(gray, medium) !default;
-$global-link-color: get-brand(secondary) !default;
+$global-link-color: get-brand(primary) !default;

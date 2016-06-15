@@ -5,27 +5,47 @@ $bubble: (
 
 // 2.Base
 .o-bubble {
-  margin-top: 20px;
+  margin-top: 40px;
   max-width: 75%;
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: row;
-  text-align: center;
+  text-align: left;
   
   &__inner {
     padding: 20px;
+    position: relative;
     border-radius: $global-border-radius;
     background: get-color(unique, white);
+    
+    &:before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      top: -5px;
+      border-bottom: 5px solid transparent;
+      border-right: 5px solid get-color(unique, white); 
+      border-top: 5px solid transparent;
+    }
   }
 
   &[data-type="answer"] {
+    margin-top: 20px;
     align-self: flex-end;
     text-align: right;
     
     .o-bubble__inner {
       background-color: get-color(blue);
       color: get-color(unique, white);
+      
+      &:before {
+        left: 0;
+        right: auto;
+        border-left: 5px solid get-color(blue);
+        border-right: 0;
+      }
     }
   }
 }

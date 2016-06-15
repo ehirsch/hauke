@@ -3,6 +3,8 @@
 @import 'base/functions',
         'base/config',
         'base/mixins',
+        'base/fonts',
+        'base/icons',
         'base/presets',
         'base/headings';
 
@@ -10,10 +12,11 @@
 @import 'utils/clearfix';
 
 // 3.Layout
-@import 'layout/default';
+@import 'layout/grid',
+        'layout/default';
 
 // 4.Components
 @import 'components/buttons',
         'components/bubbles',
-        'components/forms';
-@import 'components/buttons';
+        'components/forms',
+        'components/avatars';

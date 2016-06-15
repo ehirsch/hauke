@@ -3,6 +3,7 @@
 // 2.Base
 textarea {
   display: block;
+  padding: 0;
   resize: none;
   width: 100%;
   border: none;
@@ -10,5 +11,46 @@ textarea {
   box-shadow: none;
   background: transparent;
   color: #333;
-  @include font-size(2.1);
+  @include font-size(1.5);
+  line-height: 1;
+  
+  &:focus,
+  &:hover,
+  &:active {
+    outline: 0;
+  }
+}
+
+.o-form {
+  width: 100%;
+  
+  &--answer {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: -20px;
+    
+    > * {
+      margin-left: 20px;
+    }
+  }
+  
+  &__answer {
+    height: 23px;
+  }
+  &__sound-input {
+    padding: 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    @include font-size(0);
+    
+    &:before {
+      @extend %icon-defaults;
+      content: get-icon(micro);
+      @include font-size(2.4);
+    }
+  }
 }

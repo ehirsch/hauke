@@ -17,8 +17,9 @@
   <div class="l-chat">
     <div class="l-chat__scrollable">
       <header class="l-chat__banner" role="banner">
-        <div class="l-constrained">
-          
+        <div class="l-chat__banner__constrained">
+          <img src="images/hauke.jpg" alt="" class="o-avatar">
+          <a href="#" class="o-button">Frage?</a>
         </div>
       </header>
       <main role="main" class="l-chat__main">
@@ -27,12 +28,10 @@
     </div>
     <footer role="contentinfo" class="l-chat__contentinfo">
       <div class="l-constrained">
-        <form action="" class="o-form">
-          <textarea name="" id="" placeholder="Text eingeben">
-            
-          </textarea>
-          <button>AUDIOINPUT</button>
-          <button type="submit" class="o-button">Submit</button>
+        <form action="" class="o-form o-form--answer">
+          <button class="o-form__sound-input" id="ui-record">AUDIOINPUT</button>
+          <textarea name="" id="" placeholder="Text eingeben" class="o-form__answer"></textarea>
+          <button type="submit" class="o-button o-button--plain">Senden</button>
         </form>
       </div>
     </footer>
