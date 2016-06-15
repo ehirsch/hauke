@@ -38,15 +38,13 @@ gulp.task('serve', function() {
     });
 });
 
-gulp.task('watch', ['js', 'sass'], function() {
+gulp.task('watch', ['dist'], function() {
 	gulp.watch('app/js/**/*.js', ['js']);
 	gulp.watch('app/stylesheets/**/*.scss', ['sass']);
 });
 
-gulp.task('default', [
-  'play'
-]);
+gulp.task('dist', ['js', 'sass']);
 
-gulp.task('play', [
-  'serve', 'watch'
-]);
+gulp.task('default', ['play']);
+
+gulp.task('play', ['serve', 'watch' ]);
