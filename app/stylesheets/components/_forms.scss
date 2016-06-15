@@ -38,6 +38,23 @@ textarea {
   &__answer {
     height: 23px;
   }
+  &__sound-record {
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    z-index: -1;
+    background: get-color(unique, white);
+    
+    &.is-active {
+      height: 100%;
+      opacity: 1;
+      width: 90%;
+      z-index: get-index(soundRecord);
+    }
+  }
   &__sound-input {
     padding: 0;
     cursor: pointer;

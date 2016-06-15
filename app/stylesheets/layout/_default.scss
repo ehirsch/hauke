@@ -51,12 +51,13 @@
     width: 100%
   }
   &__contentinfo {
-    padding-bottom: 20px;
-    padding-top: 20px;
+    align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    position: relative;
     background-color: get-color(unique, white);
     border-top: 1px solid $global-border-color;
   }

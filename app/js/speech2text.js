@@ -24,7 +24,8 @@ function init() {
 	recognition.onstart = function() {
 		recognizing = true;
 		showInfo('info_speak_now');
-		// start_img.src = 'mic-animate.gif';
+
+		document.querySelector('#ui-sound-record-animation').classList.add('is-active');
 	};
 
 	recognition.onerror = function(event) {
@@ -53,6 +54,7 @@ function init() {
 		if (ignore_onend) {
 			return;
 		}
+		
 		// start_img.src = 'mic.gif';
 		if (!final_transcript) {
 			showInfo('info_start');
@@ -60,6 +62,7 @@ function init() {
 		}
 		showInfo('');
 
+		document.querySelector('#ui-sound-record-animation').classList.remove('is-active');
 
 		if (window.getSelection) {
 			window.getSelection().removeAllRanges();
