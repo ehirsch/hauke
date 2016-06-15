@@ -18,7 +18,7 @@ function init() {
 	interim_span = document.querySelector('#interim_span');
 
 	recognition = new webkitSpeechRecognition();
-	recognition.continuous = true;
+	// recognition.continuous = true;
 	recognition.interimResults = true;
 
 	recognition.onstart = function() {
@@ -55,14 +55,15 @@ function init() {
 			return;
 		}
 		
-		// start_img.src = 'mic.gif';
 		if (!final_transcript) {
-			showInfo('info_start');
+			showInfo('info_click-to-start');
 			return;
 		}
-		showInfo('');
+		showInfo('info_end');
 
 		document.querySelector('#ui-sound-record-animation').classList.remove('is-active');
+
+		reply(final_transcript);
 
 		if (window.getSelection) {
 			window.getSelection().removeAllRanges();
@@ -116,8 +117,27 @@ function startButton(event) {
 	start_timestamp = event.timeStamp;
 }
 
+var gDeutsch;
+function reply(text) {
+	var msg = new SpeechSynthesisUtterance('Du sagtest:' + text);
+
+	msg.lang = 'de-DE';
+	msg.voice = gDeutsch;
+	window.speechSynthesis.speak(msg);
+}
+
+// the voices are loaded asynchronously
+window.speechSynthesis.onvoiceschanged = function() {
+	gDeutsch = speechSynthesis.getVoices().filter(function(voice) {
+		return voice.name == 'Google Deutsch';
+	}
+	)[0];
+};
+
 function showInfo(s) {
 	console.log(s)
 }
 
 window.addEventListener ("load", init);
+
+
