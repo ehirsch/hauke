@@ -5,7 +5,6 @@ var cookieName = 'haukeConversation';
 var ControlFunction = {
 	"Vergiss alles": function(req,res) {
 
-		console.log("Vergiss alles");
 		res.clearCookie(cookieName);
 		res.json({text: "OK! Mein Kopf ist leer!"});
 	}
@@ -45,7 +44,6 @@ function postToSteuermann(req, res) {
 		uri: 'http://steuermann.herokuapp.com/v1/message',
 		json: message
 	}, function (error, response, body) {
-		console.log(response.responseText);
 		var answer = {};
 		if (error) {
 			res.json({text: "Das hat leider nicht geklappt. Ich habe anscheinend die Verbindung verloren."})

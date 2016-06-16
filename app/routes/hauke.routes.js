@@ -3,9 +3,6 @@ var router = express.Router();
 
 var hauke = require('../js/hauke');
 
-
-
-
 router.post('/', hauke.postMessage );
 
 router.get('/context', function(req, res) {
