@@ -8,7 +8,7 @@ var routes = require('./app/routes/index');
 var debug = require('./app/routes/debug');
 var speech2text = require('./app/routes/speech2text');
 var echo = require('./app/routes/echo');
-var hauke = require('./app/routes/hauke.routes');
+var steuermann = require('./app/routes/steuermann.routes');
 
 var app = express();
 
@@ -27,7 +27,7 @@ app.use('/', routes);
 app.use('/debug', debug);
 app.use('/speech2text', speech2text);
 app.use('/echo', echo);
-app.use('/hauke', hauke);
+app.use('/steuermann', steuermann);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

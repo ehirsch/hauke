@@ -1,7 +1,7 @@
 var request = require('supertest');
 var http = require('http');
 
-describe('Posting messages to /hauke', function () {
+describe('Posting messages to /steuermann', function () {
 	var app, server;
 
 	beforeEach(function () {
@@ -16,9 +16,9 @@ describe('Posting messages to /hauke', function () {
 	});
 
 
-	it('responds to /hauke', function testMessage(done) {
+	it('responds to /steuermann', function testMessage(done) {
 		request(server)
-			.post('/hauke')
+			.post('/steuermann')
 			.send({text:"hi"})
 			.expect(200, done);
 	});

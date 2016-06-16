@@ -6,7 +6,10 @@ var ControlFunction = {
 	"Vergiss alles": function(req,res) {
 
 		res.clearCookie(cookieName);
-		res.json({text: "OK! Mein Kopf ist leer!"});
+		res.json({
+			text: "OK! Mein Kopf ist leer!",
+			command: 'clear'
+		});
 	}
 };
 

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var hauke = require('../js/hauke');
+var hauke = require('../js/steuermann');
 
 router.post('/', hauke.postMessage );
 

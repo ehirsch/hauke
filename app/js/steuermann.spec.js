@@ -2,7 +2,7 @@ var request = require('request');
 var sinon = require('sinon');
 var expect = require('chai').expect;
 
-var hauke = require('./hauke');
+var hauke = require('./steuermann');
 
 
 var mockResponse, cookieName, cookieValue, cookieOptions, cookieNameResetted, sendJson, mockResponseFromSteuermann;
