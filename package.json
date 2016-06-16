@@ -4,10 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "integ" :"mocha e2e/**/*.integ.js",
-
+    "integ": "mocha ./e2e/**/*.integ.js",
     "prestart": "npm install && gulp dist"
-
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -32,6 +30,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-watch": "^4.3.6",
     "mocha": "^2.5.3",
+    "sinon": "^1.17.4",
     "supertest": "^1.2.0"
   }
 }

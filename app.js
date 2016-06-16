@@ -8,7 +8,7 @@ var routes = require('./app/routes/index');
 var debug = require('./app/routes/debug');
 var speech2text = require('./app/routes/speech2text');
 var echo = require('./app/routes/echo');
-var hauke = require('./app/routes/hauke');
+var hauke = require('./app/routes/hauke.routes');
 
 var app = express();
 
@@ -21,12 +21,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
-app.use(require('node-sass-middleware')({
-	src: path.join(__dirname, 'app'),
-	dest: path.join(__dirname, 'public'),
-	// debug:true,
-	sourceMap: true
-}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
