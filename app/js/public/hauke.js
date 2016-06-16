@@ -163,15 +163,6 @@ function setupVoice() {
 window.speechSynthesis.onvoiceschanged = setupVoice;
 
 
-function formSubmit() {
-	var text = text_area.value;
-	if( text ) {
-		text_area.value = '';
-		submit(text)
-	}
-	return false; // prevent the page from reloading
-}
-
 function submit(text) {
 	var formData = {};
 
@@ -187,6 +178,27 @@ function submit(text) {
 	xhr.send( JSON.stringify(formData) );
 	createBubble(text, 'answer');
 }
+
+function formSubmit() {
+	var text = text_area.value;
+	if( text ) {
+		text_area.value = '';
+		submit(text)
+	}
+	return false; // prevent the page from reloading
+}
+
+function submitOnAltEnter(e) {
+	var key = window.event ? e.keyCode : e.which;
+
+	if( 13 == key && e.altKey ) {
+		formSubmit()
+	}
+}
+
+// attach handler to the keydown event of the document
+document.addEventListener('keydown', submitOnAltEnter);
+
 
 function handleSteuermannResponse(res) {
 	showInfo(res);
@@ -211,7 +223,6 @@ function createBubble(text, type, avatarSource) {
 
 	bubble.scrollIntoView();
 }
-
 
 
 window.addEventListener ("load", init);

@@ -60,7 +60,6 @@ function postToSteuermann(req, res) {
 	});
 }
 
-
 function getControlFunction(request) {
 	var command = request.body.text;
 	return ControlFunction[command];
