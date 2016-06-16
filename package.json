@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "integ" :"mocha e2e/**/*.integ.js",
 
     "prestart": "npm install && gulp dist"
+
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -16,9 +18,11 @@
     "googleapis": "^8.0.0",
     "hbs": "~3.1.0",
     "morgan": "~1.6.1",
-    "node-sass-middleware": "0.8.0"
+    "node-sass-middleware": "0.8.0",
+    "request": "^2.72.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "connect-livereload": "^0.5.4",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
@@ -26,6 +30,8 @@
     "gulp-livereload": "^3.8.1",
     "gulp-sass": "^2.3.1",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-watch": "^4.3.6"
+    "gulp-watch": "^4.3.6",
+    "mocha": "^2.5.3",
+    "supertest": "^1.2.0"
   }
 }

@@ -54,16 +54,20 @@ function init() {
 		if (ignore_onend) {
 			return;
 		}
-		
+
+		document.querySelector('#ui-sound-record-animation').classList.remove('is-active');
+
 		if (!final_transcript) {
 			showInfo('info_click-to-start');
 			return;
 		}
+
 		showInfo('info_end');
 
-		document.querySelector('#ui-sound-record-animation').classList.remove('is-active');
-
-		reply(final_transcript);
+		submit(final_transcript, function (res) {
+			showInfo(res);
+			reply(res.text);
+		});
 
 		if (window.getSelection) {
 			window.getSelection().removeAllRanges();
@@ -117,25 +121,52 @@ function startButton(event) {
 	start_timestamp = event.timeStamp;
 }
 
-var gDeutsch;
-function reply(text) {
-	var msg = new SpeechSynthesisUtterance('Du sagtest:' + text);
-
-	msg.lang = 'de-DE';
-	msg.voice = gDeutsch;
-	window.speechSynthesis.speak(msg);
-}
-
-// the voices are loaded asynchronously
-window.speechSynthesis.onvoiceschanged = function() {
-	gDeutsch = speechSynthesis.getVoices().filter(function(voice) {
-		return voice.name == 'Google Deutsch';
-	}
-	)[0];
-};
 
 function showInfo(s) {
 	console.log(s)
+}
+var voice;
+
+function reply(text) {
+	var msg = new SpeechSynthesisUtterance(text);
+
+	msg.lang = 'de-DE';
+	msg.voice = voice;
+	window.speechSynthesis.speak(msg);
+}
+function setupVoice() {
+	voice = speechSynthesis.getVoices().filter(function(voice) {
+				return voice.name == 'Google Deutsch';
+			}
+	)[0];
+}
+
+// the voices are loaded asynchronously
+window.speechSynthesis.onvoiceschanged = setupVoice;
+
+function createGUID() {
+	return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+		var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+		return v.toString(16);
+	});
+}
+
+
+function submit(text, callback) {
+	var formData = {};
+
+	formData.text = text;
+	formData.userId = createGUID();
+
+	var xhr = new XMLHttpRequest();
+	// xhr.open('POST', '/hauke/message', true);
+	xhr.open('POST', '/echo', true);
+	xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+	xhr.onload = function (e) {
+		callback( JSON.parse(e.target.responseText));
+	};
+
+	xhr.send( JSON.stringify(formData) );
 }
 
 window.addEventListener ("load", init);
