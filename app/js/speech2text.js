@@ -26,6 +26,7 @@ function init() {
 		showInfo('info_speak_now');
 
 		document.querySelector('#ui-sound-record-animation').classList.add('is-active');
+		document.querySelector('#ui-record').classList.add('is-active');
 	};
 
 	recognition.onerror = function(event) {
@@ -56,6 +57,7 @@ function init() {
 		}
 
 		document.querySelector('#ui-sound-record-animation').classList.remove('is-active');
+		document.querySelector('#ui-record').classList.remove('is-active');
 
 		if (!final_transcript) {
 			showInfo('info_click-to-start');

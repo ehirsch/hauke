@@ -51,13 +51,14 @@ textarea {
     &.is-active {
       height: 100%;
       opacity: 1;
-      width: 90%;
+      width: 100%;
       z-index: get-index(soundRecord);
     }
   }
   &__sound-input {
     padding: 0;
     cursor: pointer;
+    position: relative;
     -webkit-appearance: none;
     border: none;
     box-shadow: none;
@@ -68,6 +69,26 @@ textarea {
       @extend %icon-defaults;
       content: get-icon(micro);
       @include font-size(2.4);
+    }
+    &:after {
+      content: '';
+      display: block;
+      height: 12px;
+      opacity: 0;
+      border: 3px solid white;
+      position: absolute;
+      right: -3px;
+      top: -5px;
+      width: 12px;
+      border-radius: $global-rounded-border-radius;
+      background: red;
+      transition: all .3s ease-in-out;
+    }
+    &.is-active {
+      color: get-color(blue);
+    }
+    &.is-active:after {
+      opacity: 1;
     }
   }
 }
