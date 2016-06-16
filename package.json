@@ -2,7 +2,6 @@
   "name": "hauke",
   "version": "0.0.0",
   "private": true,
-  "main": ".bin/www",
   "scripts": {
     "start": "node ./bin/www",
     "integ": "mocha ./e2e/**/*.integ.js",
@@ -18,9 +17,8 @@
     "hbs": "~3.1.0",
     "morgan": "~1.6.1",
     "node-sass-middleware": "0.8.0",
-    "request": "^2.72.0"
-  },
-  "devDependencies": {
+    "request": "^2.72.0",
+
     "chai": "^3.5.0",
     "connect-livereload": "^0.5.4",
     "gulp": "^3.9.1",
