@@ -5,16 +5,15 @@ var request = require('request');
 
 
 router.post('/message', function(req, res) {
-
 	request.post({
 		uri: 'http://steuermann.herokuapp.com/v1/message',
 		json: req.body
 	}, function(error, response, body) {
 		if(error) {
-			console.log(error);
 			res.json({text:"Das hat leider nicht geklappt. Ich habe anscheinend die Verbindung verloren."})
+		} else {
+			res.json(body);
 		}
-		res.json(body);
 	});
 });
 

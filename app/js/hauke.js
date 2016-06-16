@@ -11,11 +11,11 @@ var interim_span;
 
 function init() {
 
-	start_button = document.querySelector('#ui-record');
+	start_button = document.getElementById('ui-record');
 	start_button.addEventListener('click', startButton);
 
-	final_span = document.querySelector('#final_span');
-	interim_span = document.querySelector('#interim_span');
+	final_span = document.getElementById('ui-final-span');
+	interim_span = document.getElementById('ui-interim-span');
 
 	recognition = new webkitSpeechRecognition();
 	// recognition.continuous = true;
@@ -74,7 +74,7 @@ function init() {
 		if (window.getSelection) {
 			window.getSelection().removeAllRanges();
 			var range = document.createRange();
-			range.selectNode(document.getElementById('final_span'));
+			range.selectNode(final_span);
 			window.getSelection().addRange(range);
 		}
 	};
