@@ -64,6 +64,8 @@ function init() {
 
 		document.querySelector('#ui-sound-record-animation').classList.remove('is-active');
 
+		document.getElementById('#textarea').value(final_transcript);
+		console.log(getElemtnById('#textarea').value);
 		if (window.getSelection) {
 			window.getSelection().removeAllRanges();
 			var range = document.createRange();

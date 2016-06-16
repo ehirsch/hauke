@@ -8,16 +8,17 @@
         'base/presets',
         'base/headings';
 
-// 2.Utils
-@import 'utils/clearfix';
-
-// 3.Layout
+// 2.Layout
 @import 'layout/grid',
         'layout/default';
 
-// 4.Components
+// 3.Components
 @import 'components/buttons',
         'components/bubbles',
         'components/forms',
         'components/avatars',
         'components/popups';
+        
+// 4.Utils
+@import 'utils/clearfix',
+        'utils/visibilities';

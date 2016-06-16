@@ -1,0 +1,7 @@
+.is-hidden-mobile {
+  display: none !important;
+  
+  @include respond(medium) {
+    display: initial !important;
+  }
+}
