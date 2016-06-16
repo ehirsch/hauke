@@ -12,7 +12,7 @@ textarea {
   background: transparent;
   color: #333;
   @include font-size(1.5);
-  line-height: 1;
+  line-height: 1.2;
   
   &:focus,
   &:hover,
@@ -33,16 +33,30 @@ textarea {
     > * {
       margin-left: 20px;
     }
+
+    &__final {
+      display: none !important;
+    }
+    .o-form__wrap {
+      display: flex;
+      margin-left: 0;
+      padding-left: 40px;
+      flex-basis: 100%;
+      
+      > * {
+        margin-left: 20px;
+      }
+    }
   }
   
   &__answer {
-    height: 23px;
     margin-left: 60px;
+    padding-bottom: 7px;
   }
   &__sound-record {
     height: 0;
-    opacity: 0;
-    position: absolute;
+    display: none;
+    margin-left: 0;
     right: 0;
     top: 0;
     width: 0;
@@ -50,21 +64,17 @@ textarea {
     background: get-color(unique, white);
     
     &.is-active {
-      height: 100%;
-      opacity: 1;
+      height: auto;
+      display: block;
       width: 100%;
       z-index: get-index(soundRecord);
     }
   }
   &__sound-record__result {
     display: block;
-    left: 0;
     margin-left: 60px;
-    position: absolute;
-    min-height: 22px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 80.5%;
+    height: 27px;
+    width: 86.5%;
     border-bottom: 2px solid rgba(get-color(blue), .3);
     @include font-size(1.5);
     line-height: 1;

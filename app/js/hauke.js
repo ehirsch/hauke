@@ -27,6 +27,7 @@ function init() {
 
 		document.querySelector('#ui-sound-record-animation').classList.add('is-active');
 		document.querySelector('#ui-record').classList.add('is-active');
+		document.querySelector('#ui-form-answer').classList.add('is-hidden');
 	};
 
 	recognition.onerror = function(event) {
@@ -58,6 +59,7 @@ function init() {
 
 		document.querySelector('#ui-sound-record-animation').classList.remove('is-active');
 		document.querySelector('#ui-record').classList.remove('is-active');
+		document.querySelector('#ui-form-answer').classList.remove('is-hidden');
 
 		if (!final_transcript) {
 			showInfo('info_click-to-start');
