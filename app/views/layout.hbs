@@ -30,13 +30,11 @@
           <a href="#" class="icon-dots ui-popup-open-trigger o-button o-button--single-icon"></a>
         </div>
       </header>
-      <main role="main" class="l-chat__main">
-        {{{body}}}
-      </main>
+      <main id="ui-bubble-container" role="main" class="l-chat__main"></main>
     </div>
     <footer role="contentinfo" class="l-chat__contentinfo">
       <div class="l-constrained">
-        <form action="" class="o-form o-form--answer">
+        <form action="" class="o-form o-form--answer" onsubmit="return formSubmit()">
           <button type="button" class="o-form__sound-input" id="ui-record">AUDIOINPUT</button>
           <div class="o-form__wrap" id="ui-form-answer">
             <textarea name="text" id="ui-text" placeholder="Text eingeben" class="o-form__answer" value=""></textarea>
