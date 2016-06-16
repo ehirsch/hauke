@@ -9,7 +9,6 @@ $colorscheme: (
   blue: (
     base: #047fcd
   ),
-  brown: (base: red),
   gray: (
     light: #f2f8f9,
     medium: #e5e7ea,
@@ -22,7 +21,7 @@ $colorscheme: (
 // BrandColors
 $brandColors: (
   primary: get-color(blue),
-  secondary: get-color(brown),
+  secondary: get-color(gray, light),
   tertiary: get-color(gray)
 ) !default;
 
@@ -54,7 +53,9 @@ $breakpoints: (
 $indecies: (
   banner: 10,
   soundRecord: 10,
-  popup: 20
+  popup: 20,
+  sidebar: 16,
+  soundInput: 15
 ) !default;
 
 // Component-Distance

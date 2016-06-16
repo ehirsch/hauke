@@ -7,6 +7,11 @@
   right: 0;
   top: 0;
   
+  &__start {
+    @include font-size(1.6);
+    text-transform: uppercase;
+  }
+  
   &__banner {
     display: flex;
     padding-bottom: 15px;
@@ -17,6 +22,19 @@
     z-index: get-index(banner);
     border-bottom: 1px solid $global-border-color;
     background: rgba(get-color(unique, white), .95);
+    @include font-size(2.4);
+    line-height: 1;
+    
+    a {
+      display: block;
+      transition: all .3s ease-in-out;
+    }
+    
+    a:hover {
+      cursor: pointer;
+      transform: scale(.95);
+      text-decoration: none;
+    }
   }
   &__banner__constrained {
     align-items: center;
@@ -37,7 +55,7 @@
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
-    padding: 90px 20px 20px;
+    padding: 110px 20px 20px;
     max-width: 980px;
     width: 100%;
   }
@@ -60,5 +78,9 @@
     position: relative;
     background-color: get-color(unique, white);
     border-top: 1px solid $global-border-color;
+    
+    .l-constrained {
+      position: relative;
+    }
   }
 }

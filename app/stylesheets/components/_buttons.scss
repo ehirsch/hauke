@@ -5,12 +5,13 @@ $buttons: (
 
 // 2.Base
 .o-button {
+  cursor: pointer;
   display: inline-block;
   padding: 10px 25px;
   vertical-align: top;
-  cursor: pointer;
   -webkit-appearance: none;
-  border: 2px solid get-color(gray, medium);
+  border-radius: $global-border-radius;
+  border: 1px solid get-color(gray, medium);
   box-shadow: none;
   @include font-size(1.6);
   font-weight: 300;
@@ -18,8 +19,10 @@ $buttons: (
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  transition: all .3s ease-in-out;
 
   &:hover {
+    transform: scale(.98);
     background: get-color(gray, medium);
     text-decoration: none;
   }
@@ -30,12 +33,16 @@ $buttons: (
     background: transparent;
     box-shadow: none;
     color: get-color(blue);
-    @include font-size(1.9);
+    @include font-size(1.6);
     text-transform: none;
     
     &:hover {
       opacity: 0.7;
       background: transparent;
     }
+  }
+  &--single-icon {
+    padding: 8px;
+    line-height: 0.8;
   }
 }

@@ -1,0 +1,29 @@
+.l-sidebar {
+  left: 0;
+  min-height: 100%;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  z-index: 30;
+  width: 30%;
+  z-index: get-index(sidebar);
+  background: white;
+  border-right: 1px solid $global-border-color;
+  transform: translateX(-100%);
+  transition: all .3s ease-in-out;
+  
+  &.is-active {
+    transform: translateX(0);
+  }
+  
+  &__trigger {
+    &:before {
+      @extend %icon-defaults;
+      content: get-icon(cross);
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      @include font-size(2);
+    }
+  }
+}

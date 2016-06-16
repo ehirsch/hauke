@@ -1,8 +1,8 @@
 .o-popup {
-  display: block;
-  height: 100%;
-  display: flex;
   align-items: center;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
   justify-content: center;
   left: 0;
   opacity: 0;
@@ -11,9 +11,44 @@
   width: 100%;
   z-index: -1;
   background: rgba(get-color(unique, white), .9);
+  transition: all .4s ease-in;
+  
+  &__footer {
+    margin-top: 40px;
+    @include font-size(1.3);
+  }
+  &__body {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+  }
+  
+  &__trigger {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    @include font-size(2.4);
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+    
+    &:hover {
+      transform: scale(.9);
+      text-decoration: none;
+    }
+    
+    &:before {
+      @extend %icon-defaults;
+      content: get-icon(cross);
+    }
+  }
   
   &.is-active {
     opacity: 1;
     z-index: get-index(popup);
+    transition: all .5s ease-out;
   }
 }

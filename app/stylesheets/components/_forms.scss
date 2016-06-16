@@ -37,6 +37,7 @@ textarea {
   
   &__answer {
     height: 23px;
+    margin-left: 60px;
   }
   &__sound-record {
     height: 0;
@@ -55,15 +56,37 @@ textarea {
       z-index: get-index(soundRecord);
     }
   }
+  &__sound-record__result {
+    display: block;
+    left: 0;
+    margin-left: 60px;
+    position: absolute;
+    min-height: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80.5%;
+    border-bottom: 2px solid rgba(get-color(blue), .3);
+    @include font-size(1.5);
+    line-height: 1;
+    text-align: left;
+  }
   &__sound-input {
     padding: 0;
+    left: 0;
     cursor: pointer;
-    position: relative;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    z-index: get-index(soundInput);
     -webkit-appearance: none;
     border: none;
     box-shadow: none;
     background: transparent;
     @include font-size(0);
+    
+    &:hover {
+      color: get-color(blue);
+    }
     
     &:before {
       @extend %icon-defaults;

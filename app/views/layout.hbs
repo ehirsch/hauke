@@ -14,12 +14,20 @@
     <link rel='stylesheet' href='/stylesheets/application.css'>
 </head>
 <body>
+  <div class="l-sidebar ui-sidebar">
+    <a href="#" class="l-sidebar__trigger ui-sidebar-close-trigger"></a>
+    <img src="images/hauke.jpg" alt="">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ea praesentium harum incidunt ex, excepturi distinctio dignissimos doloremque pariatur, provident, ipsum magnam aliquam modi laudantium quidem a vel et beatae!</p>
+  </div>
   <div class="l-chat">
     <div class="l-chat__scrollable">
       <header class="l-chat__banner" role="banner">
         <div class="l-chat__banner__constrained">
-          <img src="images/hauke.jpg" alt="" class="o-avatar">
-          <a href="#" class="o-button">Frage?</a>
+          <div class="o-avatar">
+            <a href="#" class="ui-sidebar-open-trigger"><img src="images/hauke.jpg" alt=""></a>
+            <span class="o-avatar__badge"></span>
+          </div>
+          <a href="#" class="icon-dots ui-popup-open-trigger o-button o-button--single-icon"></a>
         </div>
       </header>
       <main role="main" class="l-chat__main">
@@ -34,14 +42,52 @@
           <button type="submit" class="o-button o-button--plain is-hidden-mobile">Senden</button>
 
           <div class="o-form__sound-record" id="ui-sound-record-animation">
-              <span id="ui-final-span" class="final"></span>
-              <span id="ui-interim-span" class="interim"></span>
+              <span id="ui-final-span" class="o-form__sound-record__result o-form--answer__final"></span>
+              <span id="ui-interim-span" class="o-form__sound-record__result o-form--answer__interim"></span>
           </div>
         </form>
       </div>
     </footer>
   </div>
 
+  <div class="o-popup ui-popup">
+    <a href="" class="o-popup__trigger ui-popup-close-trigger"></a>
+    <div class="o-popup__body">
+      <nav role="navigation" class="o-navigation">
+        <ul class="o-navigation__list">
+          <li><a href="#">Über smartsteuer</a></li>
+          <li><a href="#">AGB</a></li>
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutzerklärung</a></li>
+        </ul>
+      </nav>
+      <p class="o-popup__footer">Copyright by smartsteuer.de</p>
+    </div>
+  </div>
+
   <script src="/js/hauke.js"></script>
+  <script>
+    document.querySelector('.ui-popup-open-trigger').addEventListener('click', popupOpenTrigger);
+    document.querySelector('.ui-popup-close-trigger').addEventListener('click', popupCloseTrigger);
+    document.querySelector('.ui-sidebar-open-trigger').addEventListener('click', sidebarOpenTrigger);
+    document.querySelector('.ui-sidebar-close-trigger').addEventListener('click', sidebarCloseTrigger);
+
+    function popupCloseTrigger(event) {
+      event.preventDefault();
+      document.querySelector('.ui-popup').classList.remove('is-active');
+    }
+    function popupOpenTrigger(event) {
+      event.preventDefault();
+      document.querySelector('.ui-popup').classList.add('is-active');
+    }
+    function sidebarCloseTrigger(event) {
+      event.preventDefault();
+      document.querySelector('.ui-sidebar').classList.remove('is-active');
+    }
+    function sidebarOpenTrigger(event) {
+      event.preventDefault();
+      document.querySelector('.ui-sidebar').classList.add('is-active');
+    }
+  </script>
 </body>
 </html>

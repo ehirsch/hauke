@@ -64,6 +64,9 @@ $bubble: (
       bottom: -10px;
       left: -10px;
     }
+    &__badge {
+      display: none;
+    }
   }
 
   &[data-type="answer"] {

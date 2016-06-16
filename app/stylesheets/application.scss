@@ -10,14 +10,16 @@
 
 // 2.Layout
 @import 'layout/grid',
-        'layout/default';
+        'layout/default',
+        'layout/sidebars';
 
 // 3.Components
 @import 'components/buttons',
         'components/bubbles',
         'components/forms',
         'components/avatars',
-        'components/popups';
+        'components/popups',
+        'components/navigations';
         
 // 4.Utils
 @import 'utils/clearfix',

@@ -1,8 +1,28 @@
 .o-avatar {
   display: block;
   height: 55px;
+  position: relative;
   width: 55px;
   border-radius: $global-rounded-border-radius;
+  
+  img {
+    height: 55px;
+    width: 55px;
+    border-radius: $global-rounded-border-radius;
+  }
+  
+  &__badge {
+    left: -7.5px;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: -7.5px;
+    border: 2px solid get-color(unique, white);
+    background: url(../images/smartsteuer-logo-symbol.png) no-repeat center / 100% get-color(unique, white);
+    display: block;
+    width: 15px;
+    height: 15px;
+  }
   
   &--small {
     height: 30px;

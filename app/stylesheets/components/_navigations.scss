@@ -1,0 +1,16 @@
+.o-navigation {
+  @include font-size(2.4);
+  text-align: left;
+  
+  &__list {
+    @include list-reset;
+    
+    li {
+      margin-top: 20px;
+      
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
