@@ -103,3 +103,41 @@ $bubble: (
     }
   }
 }
+
+.is-loading {
+  span {
+    display: inline-block;
+    margin-left: 6px;
+    height: 9px;
+    width: 9px;
+    border-radius: $global-rounded-border-radius;
+    background: get-color(blue);
+    animation-name: blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  span:nth-child(2) {
+    animation-delay: .2s;
+  }
+
+   span:nth-child(3) {
+    animation-delay: .4s;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: .2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .2;
+  }
+}
