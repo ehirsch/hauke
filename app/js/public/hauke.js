@@ -18,8 +18,9 @@ function waitForInput() {
 		clearTimeout(recognizerTimeout);
 	}
 	recognizerTimeout = setTimeout(function () {
+		console.log('stop listening…');
 		recognition.stop();
-	}, 1500);
+	}, 2000);
 }
 function init() {
 
@@ -43,6 +44,7 @@ function init() {
 		document.getElementById('ui-sound-record-animation').classList.add('is-active');
 
 		document.getElementById('ui-form-answer').classList.add('is-hidden');
+
 
 		waitForInput();
 	};
@@ -95,6 +97,8 @@ function init() {
 
 	recognition.onresult = function(event) {
 		var interim_transcript = '';
+		console.log('onresult');
+		waitForInput();
 		for (var i = event.resultIndex; i < event.results.length; ++i) {
 			if (event.results[i].isFinal) {
 				final_transcript += event.results[i][0].transcript;
@@ -105,8 +109,6 @@ function init() {
 		final_transcript = capitalize(final_transcript);
 		final_span.innerHTML = linebreak(final_transcript);
 		interim_span.innerHTML = linebreak(interim_transcript);
-
-		waitForInput();
 	};
 }
 
@@ -137,6 +139,10 @@ function startButton(event) {
 	start_timestamp = event.timeStamp;
 }
 
+function start() {
+	startButton({timeStamp: new Date()});
+}
+
 
 function showInfo(s) {
 	console.log(s)
@@ -157,6 +163,16 @@ function reply(text) {
 
 	msg.lang = 'de-DE';
 	msg.voice = voice;
+
+	// on the end we will listen for some time for an answer.
+	msg.onend = function () {
+		console.log("start listening again");
+		setTimeout(start, 1000);
+	};
+	msg.onerror = function() {
+		console.log("humpf")
+	};
+
 	window.speechSynthesis.speak(msg);
 }
 function setupVoice() {
