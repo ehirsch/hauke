@@ -146,6 +146,13 @@ var voice;
 function reply(text) {
 	createBubble(text, 'question', 'images/hauke.jpg');
 
+	// http://stackoverflow.com/questions/21947730/chrome-speech-synthesis-with-longer-texts
+	try {
+		window.speechSynthesis.cancel();
+	} catch (e) {
+		console.log(e);
+	}
+
 	var msg = new SpeechSynthesisUtterance(text);
 
 	msg.lang = 'de-DE';
