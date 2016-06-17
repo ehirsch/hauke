@@ -164,6 +164,7 @@ function reply(text) {
 	msg.lang = 'de-DE';
 	msg.voice = voice;
 
+
 	// on the end we will listen for some time for an answer.
 	msg.onend = function () {
 		console.log("start listening again");
@@ -180,6 +181,13 @@ function setupVoice() {
 				return voice.name == 'Google Deutsch';
 			}
 	)[0];
+
+	if (voice === undefined) {
+		voice = speechSynthesis.getVoices().filter(function(voice) {
+					return voice.name == 'Anna (Enhanced)';
+				}
+		)[0];
+	}
 }
 
 // the voices are loaded asynchronously
