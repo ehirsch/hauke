@@ -195,10 +195,11 @@ window.speechSynthesis.onvoiceschanged = setupVoice;
 
 
 function submit(text) {
+	createBubble(text, 'answer');
+
 	var formData = {};
 
 	formData.text = text;
-
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', '/steuermann', true);
 	xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -207,7 +208,6 @@ function submit(text) {
 	};
 
 	xhr.send( JSON.stringify(formData) );
-	createBubble(text, 'answer');
 }
 
 function formSubmit() {
@@ -254,6 +254,28 @@ function createBubble(text, type, avatarSource) {
 
 	bubble.scrollIntoView();
 }
+
+// function createBubble(text, type) {
+// 	const bubbleSelector = '.ui-bubble-waiting-' + type;
+// 	var bubble = document.querySelector(bubbleSelector);
+// 	bubble.classList.remove(bubbleSelector);
+// 	bubble.innerHTML = '<p>' + text + '</p>';
+// 	bubble.parentNode.scrollIntoView();
+// }
+//
+// function createWaitBubble(type, avatarSource) {
+// 	avatarSource = avatarSource || "images/default-avatar.jpg";
+// 	var bubble = document.createElement("div");
+// 	bubble.classList.add('o-bubble');
+// 	bubble.setAttribute('data-type', type);
+// 	bubble.innerHTML = '<div class="o-bubble__inner ui-bubble-waiting-'+
+// 			type + '"><p class="is-loading"><span></span><span></span><span></span></p></div>' +
+// 			'<img src="' + avatarSource + '" alt="" class="o-avatar o-avatar--small">';
+//
+// 	bubbleContainer.appendChild(bubble);
+//
+// 	bubble.scrollIntoView();
+// }
 
 
 window.addEventListener ("load", init);
