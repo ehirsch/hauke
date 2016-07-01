@@ -10,7 +10,6 @@ Lade dir das Repository herunter oder klone es auf deiner Maschine. Das Projekt 
 Gulp ist der Task-Runner unserer Wahl. Du musst Gulp dafür global auf deiner Maschine installieren.
 
 ```
-// Install gulp
 npm install -g gulp
 ```
 
