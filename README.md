@@ -1,5 +1,7 @@
 # Hauke: Chatbot der Steuererklärung
 
+![App](https://cloud.githubusercontent.com/assets/986401/16515487/946eb292-3f72-11e6-9a51-eaca7418156c.png)
+
 ## Einleitung
 Hauke ist ein Chatbot, der durch ein Gespräch mit dir die wichtigen Informationen für deine Steuererklärung erfährt. Der Chatbot ist im Rahmen unserer Innovationswoche entstanden, in der wir uns etwas vom Alltagsgeschäft gelöst haben und an eigenen neuen Ideen gearbeitet haben. Dabei ging es besonders darum, sich von allen bestehenden Dingen frei zu machen und ganz neu zu denken.
 
